@@ -30,8 +30,10 @@ def extractFaceResponse(rawResponse):
         emotion = max(emotionList.items(), key=operator.itemgetter(1))[0]
 
         formattedRes = {}
-        formattedRes['faceRectangle'] = faceRectangle
-        formattedRes['emotion'] = emotion
+        faceDetectionDetails = {}
+        faceDetectionDetails['faceRectangle'] = faceRectangle
+        faceDetectionDetails['emotion'] = emotion
+        formattedRes['faceDetectionDetails'] = faceDetectionDetails
         return jsonify(formattedRes)
     else:
         return jsonify({"Error": "COULD_N0T_DETECT_FACE"}) 
